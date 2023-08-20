@@ -29,5 +29,14 @@ namespace BookFlights.Controllers
         [HttpGet]
         public IEnumerable<FlightRm> Search()
             => flights;
+
+        [HttpGet("{id}")]
+        public ActionResult<FlightRm> findFlight(Guid id)
+        {
+            FlightRm flight = flights.FirstOrDefault(f => f.Id == id);
+            if (flight == null)
+                return NotFound();
+            return flight;
+        }
     }
 }
