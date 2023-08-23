@@ -30,7 +30,7 @@ export class BookFlightComponent implements OnInit{
         this.handleError)
   }
 
-  private handleError = (err: any)=> {
+  private handleError = (err: any) => {
     if (err.status == 404) {
       alert("Flight not found")
       this.router.navigate(['/search-flight'])
